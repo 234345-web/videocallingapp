@@ -20,7 +20,7 @@ class MainScreen extends GetView<MainScreenController> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Video Calling",
+          "Video Calling App",
           style: GoogleFonts.lobsterTwo(
             color: Colors.white,
             fontSize: 26,
