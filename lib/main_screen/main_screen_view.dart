@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +7,6 @@ import 'package:videocalling/routes/app_routes.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class MainScreen extends GetView<MainScreenController> {
-
   const MainScreen({super.key});
 
   @override
@@ -22,7 +20,7 @@ class MainScreen extends GetView<MainScreenController> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Video Calling App",
+          "Video Calling",
           style: GoogleFonts.lobsterTwo(
             color: Colors.white,
             fontSize: 26,
@@ -31,14 +29,11 @@ class MainScreen extends GetView<MainScreenController> {
         ),
         actions: [
           IconButton(
-  icon: const Icon(
-    Icons.translate,
-    color: Colors.white,
-  ),
-  onPressed: () {
-    Get.toNamed(AppRoutes.translation);
-  },
-)
+            icon: const Icon(Icons.translate, color: Colors.white),
+            onPressed: () {
+              Get.toNamed(AppRoutes.translation);
+            },
+          ),
         ],
       ),
 
@@ -57,9 +52,7 @@ class MainScreen extends GetView<MainScreenController> {
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.15),
-                  ),
+                  border: Border.all(color: Colors.white.withOpacity(0.15)),
                 ),
 
                 child: ListTile(
@@ -135,12 +128,7 @@ class MainScreen extends GetView<MainScreenController> {
 
   void _startVideoCall(AppUser user) {
     ZegoUIKitPrebuiltCallInvitationService().send(
-      invitees: [
-        ZegoCallUser(
-          user.id,
-          user.name,
-        ),
-      ],
+      invitees: [ZegoCallUser(user.id, user.name)],
       isVideoCall: true,
     );
   }
@@ -151,12 +139,7 @@ class MainScreen extends GetView<MainScreenController> {
 
   void _startVoiceCall(AppUser user) {
     ZegoUIKitPrebuiltCallInvitationService().send(
-      invitees: [
-        ZegoCallUser(
-          user.id,
-          user.name,
-        ),
-      ],
+      invitees: [ZegoCallUser(user.id, user.name)],
       isVideoCall: false,
     );
   }
@@ -165,10 +148,7 @@ class MainScreen extends GetView<MainScreenController> {
   // CALL BUTTON
   // ----------------------------------------------------------
 
-  Widget _callButton({
-    required IconData icon,
-    required VoidCallback onTap,
-  }) {
+  Widget _callButton({required IconData icon, required VoidCallback onTap}) {
     return Material(
       color: Colors.white.withOpacity(0.15),
       shape: const CircleBorder(),
@@ -179,14 +159,9 @@ class MainScreen extends GetView<MainScreenController> {
 
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 21,
-          ),
+          child: Icon(icon, color: Colors.white, size: 21),
         ),
       ),
     );
   }
 }
-
